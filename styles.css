@@ -407,6 +407,23 @@ header h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 18px 0 10px 0;
+    color: var(--accent);
+    font-size: 1.08rem;
+    letter-spacing: 1px;
+    background: transparent;
+    margin-top: 18px;
+    font-weight: 500;
+    opacity: 0.85;
+}
+body.dark-mode .footer {
+    color: var(--accent);
+    opacity: 0.92;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .container {
