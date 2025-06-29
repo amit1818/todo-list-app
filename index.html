@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced To-Do List App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>To-Do List App</h1>
+            <button id="dark-mode-toggle" title="Toggle dark mode">🌙</button>
+        </header>
+        <section class="add-task-section">
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Task title" required>
+                <input type="text" id="task-category" placeholder="Category (optional)">
+                <select id="task-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <input type="date" id="task-due-date">
+                <textarea id="task-notes" placeholder="Notes (optional)"></textarea>
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+        <section class="controls-section">
+            <input type="text" id="search-input" placeholder="Search tasks...">
+            <select id="filter-category">
+                <option value="">All Categories</option>
+            </select>
+            <select id="filter-priority">
+                <option value="">All Priorities</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <select id="filter-status">
+                <option value="">All Statuses</option>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+            </select>
+            <button id="bulk-complete">Mark Selected Complete</button>
+            <button id="bulk-delete">Delete Selected</button>
+            <button id="export-tasks">Export</button>
+            <input type="file" id="import-tasks" style="display:none;">
+            <button id="import-tasks-btn">Import</button>
+        </section>
+        <section class="progress-section">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <span id="progress-text"></span>
+        </section>
+        <section class="tasks-section">
+            <ul id="task-list">
+                <!-- Tasks will be rendered here -->
+            </ul>
+            <div id="pagination-controls"></div>
+        </section>
+    </div>
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Task</h2>
+            <form id="edit-task-form">
+                <input type="text" id="edit-task-title" placeholder="Task title" required>
+                <input type="text" id="edit-task-category" placeholder="Category (optional)">
+                <select id="edit-task-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <input type="date" id="edit-task-due-date" placeholder="Due date">
+                <textarea id="edit-task-notes" placeholder="Notes (optional)"></textarea>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <!-- Confirmation Dialog -->
+    <div id="confirm-dialog">
+        <div class="dialog-content">
+            <p id="confirm-message">Are you sure you want to delete this task?</p>
+            <button class="confirm" id="confirm-yes">Yes</button>
+            <button class="cancel" id="confirm-no">No</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
